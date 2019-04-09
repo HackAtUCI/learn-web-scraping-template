@@ -71,4 +71,4 @@ For more information, refer to the official documentation link below.
 - BeautifulSoup4 Docs: https://www.crummy.com/software/BeautifulSoup/bs4/doc/#soupstrainer
 - Selenium Docs: https://www.seleniumhq.org/docs/#
 - Medium Tutorial: https://medium.freecodecamp.org/better-web-scraping-in-python-with-selenium-beautiful-soup-and-pandas-d6390592e251
-
+- Slides: https://docs.google.com/presentation/d/1y_NsIcOMNCjByvnDMi9gK-_Jvlxj1AO3BnCIi55vCFA/edit#slide=id.gc6f90357f_0_0
