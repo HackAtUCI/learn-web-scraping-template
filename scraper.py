@@ -76,15 +76,15 @@ if __name__ == '__main__':
         pass
 
     # This is the list of fields of information we are going to extract from the job listings.
-    fieldnames = ["role", "description", "qualifications","prompt"]
+    fieldnames = ["ROLE", "DESCRIPTION", "QUALIFICATIONS","PROMPT"]
 
     # TODO(13): Write the information to a CSV file.
     writer = ""
 
-    data = {"role":"", 
-            "description": "",
-            "qualifications": "", 
-            "prompt": ""}
+    data = {"ROLE":"", 
+            "DESCRIPTION": "",
+            "QUALIFICATIONS": "", 
+            "PROMPT": ""}
 
     # TODO(14): Get the technology webpage from the recruitment site.
     positions_html = ""
@@ -97,11 +97,11 @@ if __name__ == '__main__':
 
         # TODO(17): Write the data for each key in the data dictionary.
 
-        data["role"] = ""
-        data["description"] = ""
+        data["ROLE"] = ""
+        data["DESCRIPTION"] = ""
         
-        data["qualifications"] = "" 
-        data["prompt"] = ""
+        data["QUALIFICATIONS"] = "" 
+        data["PROMPT"] = ""
 
         # TODO(20): Write the data into the CSV file using the writer object. Each instance of the data is a row in the CSV file. 
         
