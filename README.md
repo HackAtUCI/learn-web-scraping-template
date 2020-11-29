@@ -1,49 +1,50 @@
 # Web Scraping Workshop
-In this workshop, you will learn how to scrape a dynamic web page (https://www.hackuci.com/recruit) using selenium and BeautifulSoup.
+In this workshop, you will learn how to scrape a dynamic web page (https://www.hackuci.com/recruit) using Selenium and BeautifulSoup.
 
-## Setup
+## Step 0: Pre-check
+Make sure that you have Python3 installed.
+If you do not, [here is an installation guide](https://realpython.com/installing-python/).
 
-### Step 0: Pre-check
-Go to your terminal and run these commands in this order:
-- python --version
-- pip --version
+## Step 1: Set up a virtual environment 
+We set up and activate a virtual environment to avoid code ambiguities in our 
+global python library.
 
-If your system tells you do not have both, download what you don't have. 
+On macOS and Linux:
+```
+python3 -m venv env
+source env/bin/activate
+```
+On Windows:
+```
+py -m venv env
+.\env\Scripts\activate.bat
+```
 
-### Step 1: Set up a virtual environment 
-We set up a virtual environment to avoid code ambiguities in our 
-global python library (i.e. two functions with the same name in different modules). 
-If these ambiguities occur, they will cause errors and your code will not run.
+## Step 2: Installing Python dependencies
+We install the dependencies that this project requires into the virtual environment using:
+```
+python -m pip install -r requirements.txt
+```
 
-- pip install virtualenv (you can run "pip list" to see if you already have virtualenv )
-- set aside a folder/workspace and cd into it
-- run command "virtualenv <environment_name>"
-
-### Step 2: Installing python packages
-- for Windows, run "./<environment_name>/scripts/activate".
-- for Mac/Linux, run "source ./<environment_name>/bin/activate"
-- Then, "pip install -r requirements.txt". <requirements.txt> should already be in the repository.
-- You have successfully created your virtual environment and are ready to begin scraping.
-
+## Step 3: Run the project
+We run the project using:
+```
+python scraper.py
+```
 
 ## Selenium 
 We use selenium to make our script act as a client making requests to a website. This is important when scraping a javascript rendered web page as we need our script to wait for the website's javascript to execute and grab the resulting html. That will have the data we want, not the page source.
 
-To make our script act like a client:
-
-    from selenium import webdriver
-    driver = webdriver.Chrome('./webdrivers/chromedriver.exe')
-    #chromedrivers are in the repository 
-    #chromedriver instead of chromedriver.exe if on Mac/Linux
-
 This will initialize a chrome webdriver and open up a chrome window. 
-
-    driver.get('www.hackuci.com/recruit')
+```
+driver.get('www.hackuci.com/recruit')
+```
 This will open up the page at www.hackuci.com/recruit.
-
-    time.sleep(1)
-    html = driver.execute_script('return document.documentElement.outerHTML')
-We want to give the page time to execute its javascript. If we grabbed the html too quickly, we would grab the page source, which would be only javascript code.  
+```
+time.sleep(2)
+html = driver.find_element_by_tag_name('html').get_attribute('innerHTML')
+```
+We want to give the page time to execute its javascript. If we grabbed the html too quickly, we would grab the page source, which would be only javascript code.
 
 This is how we will grab the html from a dynamic website.  
 
@@ -71,4 +72,4 @@ For more information, refer to the official documentation link below.
 - BeautifulSoup4 Docs: https://www.crummy.com/software/BeautifulSoup/bs4/doc/#soupstrainer
 - Selenium Docs: https://www.seleniumhq.org/docs/#
 - Medium Tutorial: https://medium.freecodecamp.org/better-web-scraping-in-python-with-selenium-beautiful-soup-and-pandas-d6390592e251
-- Slides: https://docs.google.com/presentation/d/1y_NsIcOMNCjByvnDMi9gK-_Jvlxj1AO3BnCIi55vCFA/edit#slide=id.gc6f90357f_0_0
+- Slides: https://docs.google.com/presentation/d/1AoksHoJfnrHUw59HTlMkrFDeq3UjCbmDA3n-M49y_lw/edit?usp=sharing
