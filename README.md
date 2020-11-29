@@ -1,11 +1,21 @@
 # Web Scraping Workshop
 In this workshop, you will learn how to scrape a dynamic web page (https://www.hackuci.com/recruit) using Selenium and BeautifulSoup.
 
-## Step 0: Pre-check
-Make sure that you have Python3 installed.
-If you do not, [here is an installation guide](https://realpython.com/installing-python/).
+## Step 1: Pre-requisite Downloads
+- Make sure that you have Python3 installed. If you do not, [here is an installation guide](https://realpython.com/installing-python/).
+- Make sure you have the latest version of Google Chrome (Version 87)
 
-## Step 1: Set up a virtual environment 
+## Step 1: Download the project
+Clone the repo using:
+```
+git clone https://github.com/hackuci/learn-web-scraping-template.git
+```
+Navigate into the project directory:
+```
+cd learn-web-scraping-template
+```
+
+## Step 2: Set up a virtual environment 
 We set up and activate a virtual environment to avoid code ambiguities in our 
 global python library.
 
@@ -20,17 +30,25 @@ py -m venv env
 .\env\Scripts\activate.bat
 ```
 
-## Step 2: Installing Python dependencies
+## Step 3: Installing Python dependencies
 We install the dependencies that this project requires into the virtual environment using:
 ```
 python -m pip install -r requirements.txt
 ```
 
-## Step 3: Run the project
-We run the project using:
+## Step 4: Run the project
+Run the project using:
 ```
 python scraper.py
 ```
+
+**If you see the following error message, please update your Google Chrome to version 87:**
+```
+This version of ChromeDriver only supports Chrome version 87
+Current browser version is 86.0.4240.198
+```
+
+---
 
 ## Selenium 
 We use selenium to make our script act as a client making requests to a website. This is important when scraping a javascript rendered web page as we need our script to wait for the website's javascript to execute and grab the resulting html. That will have the data we want, not the page source.
