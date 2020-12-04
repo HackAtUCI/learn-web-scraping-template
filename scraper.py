@@ -105,8 +105,8 @@ if __name__ == "__main__":
 
             # TODO(17): Save the data for each key in the data dictionary.
             job_data = {
-                "ROLE": job.find("div", class_="job-title").text.strip("\n"),
-                "DESCRIPTION": job.find("span").text.strip("\n"),
+                "ROLE": job.find("div", class_="job-title").text.replace("\n", ""),
+                "DESCRIPTION": job.find("span").text.replace("\n", ""),
                 "QUALIFICATIONS": get_qualifications(job),
                 "PROMPT": get_prompt(job),
             }
